@@ -1,0 +1,182 @@
+:root {
+    --dark: #0f1213;
+    --darker: #1f2d37;
+    --darkest: #112127;
+    --gray: #6B7280;
+    --green: #00ff40;
+    --blue: #0066ff;
+    --light: rgb(177, 177, 177);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira code', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--dark);
+    color: var(--light)
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 6.5rem;
+    font-weight: 700;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#new-task-form {
+    display: flex;
+}
+
+input,
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+    color: var(--gray);
+}
+
+#new-task-submit {
+    color: var(--green);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--green), var(--blue));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: opacity .6s;
+}
+
+#new-task-submit:hover,
+.task .actions .edit:hover {
+    opacity: 0.8;
+}
+
+#new-task-submit:active,
+.task .actions .edit:active {
+    opacity: 0.8;
+}
+
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list {
+    padding: 1rem;
+}
+
+.task-list h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--darkest);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#tasks .task .content {
+    flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: .4s;
+}
+
+#tasks .task .content .text:not(:read-only) {
+    color: rgb(255, 251, 0);
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.task .actions .edit {
+    background-image: linear-gradient(to left, var(--green), var(--blue));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity .6s;
+}
+
+.task .actions .delete {
+    color: var(--light);
+    transition: color .4s;
+}
+
+.task .actions .delete:hover {
+    color: rgb(212, 71, 100);
+}
+
+.task .actions .done {
+    background-image: linear-gradient(to left, var(--green), var(--blue));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#tasks .content.-done {
+    text-decoration: line-through;
+    opacity: 0.2;
+}
+
+
+/* ----------------------------Responsividade---------------------------- */
+
+
+@media only screen and (max-width: 768px) {
+    
+}
