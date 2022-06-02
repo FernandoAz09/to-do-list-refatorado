@@ -1,12 +1,11 @@
 
-# TO-DO-LIST
+# TO-DO-LIST - REAFATORADO
 
+- Inicio da refatoração do projeto para que fique salvo em localStorage e que tenha responsividade.
 - Projeto feito para me desafiar, aprender, praticar e mostrar para o mundo que sou capaz!!
 - Neste projeto será feito uma lista de tarefas, onde será possível, CRIAR, VISUALIZAR, EXCLUIR e EDITAR/ATUALIZAR marcando como feitas as TASKS criadas.
 
 
-## Link do deploy
-- acesse o site aqui https://todolist-fernandoaz09.netlify.app/
 ## Demonstração
 <img src="/assets/imgs/print1.png"  width="500px" heigt="500px">
 <img src="/assets/imgs/print2.png"  width="500px" heigt="500px">
