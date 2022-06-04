@@ -11,3 +11,35 @@ let bdLocalStorage = [
 ]
 
 
+// CRIAR TASK
+
+const criarTask = (taskTxt, status) => {
+    const task = document.createElement('div');
+    task.classList.add('task')
+    task.innerHTML = `
+        <div class="content ${status}">
+        <input
+            id=${idGenerator()}
+            type="text"
+            class="text"
+            value="${taskTxt}"
+            readonly />
+        </div>
+        <div class="actions">
+            <button class="done">
+                <span class="material-symbols-outlined">
+                    check_circle
+                </span>
+            </button>
+            <button class="edit">
+                Edit
+            </button>
+            <button class="delete">
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+            </button>
+    `
+    document.getElementById('tasks').appendChild(task)
+}
+
