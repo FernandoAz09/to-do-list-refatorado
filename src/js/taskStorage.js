@@ -11,7 +11,7 @@ let bdLocalStorage = [
 ]
 
 
-// CRIAR TASK
+// -------------------------------- CRIAR TASK --------------------------------
 
 const criarTask = (taskTxt, status) => {
     const task = document.createElement('div');
@@ -42,4 +42,15 @@ const criarTask = (taskTxt, status) => {
     `
     document.getElementById('tasks').appendChild(task)
 }
+
+
+// -------------------------------- Update localStorage list --------------------------------
+const  tasksClear = () => {
+    const tasksList = document.getElementById('tasks')
+    while (tasksList.firstChild) {
+        tasksList.removeChild(tasksList.lastChild)
+    }
+}
+
+
 
