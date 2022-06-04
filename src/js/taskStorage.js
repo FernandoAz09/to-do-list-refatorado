@@ -59,7 +59,4 @@ const updateScreen = () => {
     bdLocalStorage.forEach (task => criarTask (task.task_txt, task.status, task.id))
 }
 
-
-document.getElementById('new-task-submit').addEventListener('click', addTask)
-
 updateScreen(console.log(bdLocalStorage))
