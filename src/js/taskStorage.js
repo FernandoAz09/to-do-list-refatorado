@@ -4,6 +4,7 @@ function idGenerator() {
     var id = timestamp.getTime().toString()
     return id
 }
+// ---------------- Fake/teste banco de dados do LocalStorage ----------------
 
 let bdLocalStorage = [
     {'task_txt': 'Estudar JS', 'status': ''},
@@ -44,7 +45,7 @@ const criarTask = (taskTxt, status) => {
 }
 
 
-// -------------------------------- Update localStorage list --------------------------------
+// ---------------------- Update localStorage list ----------------------
 const  tasksClear = () => {
     const tasksList = document.getElementById('tasks')
     while (tasksList.firstChild) {
@@ -53,7 +54,7 @@ const  tasksClear = () => {
 }
 
 
-// -------------------------------- Update Screen list --------------------------------
+// ------------------------ Update Screen list ------------------------
 const updateScreen = () => {
     tasksClear()
     bdLocalStorage.forEach (task => criarTask (task.task_txt, task.status, task.id))
