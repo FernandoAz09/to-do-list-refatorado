@@ -53,4 +53,8 @@ const  tasksClear = () => {
 }
 
 
-
+// -------------------------------- Update Screen list --------------------------------
+const updateScreen = () => {
+    tasksClear()
+    bdLocalStorage.forEach (task => criarTask (task.task_txt, task.status, task.id))
+}
