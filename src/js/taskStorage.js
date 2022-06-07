@@ -4,7 +4,7 @@ function idGenerator() {
     var id = timestamp.getTime().toString()
     return id
 }
-// ---------------- Fake/teste banco de dados do LocalStorage ----------------
+// // ---------------- Fake/teste banco de dados do LocalStorage ----------------
 
 // let bdLocalStorage = [
 //     {'task_txt': 'Estudar JS', 'status': ''},
@@ -12,7 +12,7 @@ function idGenerator() {
 // ]
 
 
-// -------------------------------- CRIAR TASK --------------------------------
+// // -------------------------------- CRIAR TASK --------------------------------
 
 // const criarTask = (taskTxt, status) => {
 //     const task = document.createElement('div');
@@ -45,7 +45,7 @@ function idGenerator() {
 // }
 
 
-// ---------------------- Update localStorage list ----------------------
+// // ---------------------- Update localStorage list ----------------------
 // const  tasksClear = () => {
 //     const tasksList = document.getElementById('tasks')
 //     while (tasksList.firstChild) {
@@ -54,10 +54,23 @@ function idGenerator() {
 // }
 
 
-// ------------------------ Update Screen list ------------------------
+// // ------------------------ Update Screen list ------------------------
 // const updateScreen = () => {
 //     tasksClear()
 //     bdLocalStorage.forEach (task => criarTask (task.task_txt, task.status, task.id))
 // }
 
 // updateScreen(console.log(bdLocalStorage))
+
+// // ------------------------ Insert task ------------------------
+// const insertTask = (event) => {
+//     const tecla = event.key
+//     const taskTxt = event.target.value
+//     if (tecla === 'Enter') {
+//         bdLocalStorage.push({'task_txt': taskTxt, 'status': '-done'})
+//         updateScreen()
+//     }
+// }
+
+// document.getElementById('new-task-submit').addEventListener('keypress', insertTask)
+// updateScreen()
