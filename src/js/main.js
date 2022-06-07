@@ -1,3 +1,5 @@
+"use strict"
+
 // Função para gerar ID via timestamp
 function idGenerator() {
     var timestamp = new Date()
@@ -6,7 +8,7 @@ function idGenerator() {
 }
 
 const inputElement = document.querySelector('#new-task-input')
-const taskList = document.querySelector('#tasks')
+const tasksContainer = document.querySelector('#tasks')
 const submitTaskButton = document.querySelector('#new-task-submit')
 const taskElement = document.querySelector('.task')
 
@@ -27,29 +29,26 @@ const handleAddTask = () => {
         inputElement.value = ''
         return
     }
-    
+
     // Criando a div class="task"
-    const task_element = document.createElement('div') 
+    const task_element = document.createElement('div')
     task_element.classList.add('task')
 
     // Criando a div class="content"
-    const task_content = document.createElement('div') 
-    task_content.classList.add('content')
+    const taskContent = document.createElement('div')
+    taskContent.classList.add('content')
 
-    task_content.addEventListener('click', () => handleClick(task_content))
+    taskContent.addEventListener('click', () => handleClick(taskContent))
 
-    //Criando o Input
-    const task_input_element = document.createElement('input') 
-    task_input_element.classList.add('text')
-    task_input_element.type = 'text'
-    task_input_element.value = inputElement.value
-    task_input_element.setAttribute('readonly', 'readonly')
-
-    task_content.appendChild(task_input_element)
-
+    //Criando o Texto
+    const taskText = document.createElement('p')
+    taskText.innerText = inputElement.value;
     // Criando um id com o timeStamp
     const idStamp = idGenerator()
-    task_input_element.setAttribute('id', idStamp) 
+    taskText.setAttribute('id', idStamp)
+
+    taskContent.appendChild(taskText)
+
 
     // Criando o botão de DELETE
     const deleteTask = document.createElement('i')
@@ -59,21 +58,29 @@ const handleAddTask = () => {
     deleteTask.addEventListener('click', () => handleDeleteClick(task_element))
 
 
-    task_element.appendChild(task_content)
+    task_element.appendChild(taskContent)
     task_element.appendChild(deleteTask)
+    tasksContainer.appendChild(task_element)
 
-    taskList.appendChild(task_element)
     inputElement.value = ''
+
+    updateLocalStorage()
 }
 
 // Task Done
-const handleClick = (task_content) => {
-    if (task_content.className === 'content') {
-        task_content.classList.add('-done')
-    } else {
-        task_content.classList.remove('-done')
+const handleClick = (taskContent) => {
+    const tasks = tasksContainer.childNodes;
+
+    for (const task of tasks) {
+        const currentTaskIsBeingClicked = task.firstChild === taskContent;
+
+        if (currentTaskIsBeingClicked) {
+            task.firstChild.classList.toggle("-done");
+        }
     }
-}
+
+    updateLocalStorage();
+};
 
 // Task Delete 
 const handleDeleteClick = (task_element) => {
@@ -81,8 +88,8 @@ const handleDeleteClick = (task_element) => {
         task_element.remove()
     }
 
+    updateLocalStorage()
 }
 
 //Create task
-
 submitTaskButton.addEventListener('click', () => handleAddTask())
