@@ -5,7 +5,7 @@
     --gray: #6B7280;
     --green: #00ff40;
     --blue: #0066ff;
-    --light: rgb(177, 177, 177);
+    --light: rgb(241, 241, 241);
 }
 
 * {
@@ -20,7 +20,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background: var(--dark);
-    color: var(--light)
+    color: var(--light);
+    user-select: none;
+
 }
 
 header {
@@ -37,7 +39,7 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-#new-task-form {
+.container {
     display: flex;
 }
 
@@ -64,7 +66,6 @@ button {
 }
 
 #new-task-submit {
-    color: var(--green);
     font-size: 1.25rem;
     font-weight: 700;
     background-image: linear-gradient(to right, var(--green), var(--blue));
@@ -107,6 +108,7 @@ main {
 #tasks .task {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--darkest);
     padding: 1rem;
     border-radius: 1rem;
@@ -129,54 +131,23 @@ main {
     color: rgb(255, 251, 0);
 }
 
-#tasks .task .actions {
+.task i  {
     display: flex;
-    margin: 0 -0.5rem;
-}
-
-.task .actions button {
     cursor: pointer;
-    margin: 0 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.task .actions .edit {
-    background-image: linear-gradient(to left, var(--green), var(--blue));
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: opacity .6s;
-}
-
-.task .actions .delete {
     color: var(--light);
     transition: color .4s;
 }
 
-.task .actions .delete:hover {
-    color: rgb(212, 71, 100);
-}
-
-.task .actions .done {
-    background-image: linear-gradient(to left, var(--green), var(--blue));
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#tasks .content.-done {
+#tasks .content.-done{
     text-decoration: line-through;
-    opacity: 0.2;
+    opacity: 0.6;
+}
+
+.task i:hover {
+    color: rgb(255, 52, 52);
+    text-shadow: 0px 0px 5px red;
 }
 
 
 /* ----------------------------Responsividade---------------------------- */
 
-
-@media only screen and (max-width: 768px) {
-    
-}
