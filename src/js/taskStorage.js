@@ -4,73 +4,85 @@ function idGenerator() {
     var id = timestamp.getTime().toString()
     return id
 }
-// // ---------------- Fake/teste banco de dados do LocalStorage ----------------
 
-// let bdLocalStorage = [
-//     {'task_txt': 'Estudar JS', 'status': ''},
-//     {'task_txt': 'Estudar CSS', 'status': '-done'}
-// ]
-
-
-// // -------------------------------- CRIAR TASK --------------------------------
-
-// const criarTask = (taskTxt, status) => {
-//     const task = document.createElement('div');
-//     task.classList.add('task')
-//     task.innerHTML = `
-//         <div class="content ${status}">
-//         <input
-//             id=${idGenerator()}
-//             type="text"
-//             class="text"
-//             value="${taskTxt}"
-//             readonly />
-//         </div>
-//         <div class="actions">
-//             <button class="done">
-//                 <span class="material-symbols-outlined">
-//                     check_circle
-//                 </span>
-//             </button>
-//             <button class="edit">
-//                 Edit
-//             </button>
-//             <button class="delete">
-//                 <span class="material-symbols-outlined">
-//                     delete
-//                 </span>
-//             </button>
-//     `
-//     document.getElementById('tasks').appendChild(task)
-// }
+const inputElement = document.querySelector('#new-task-input')
+const taskList = document.querySelector('#tasks')
+const submitTaskButton = document.querySelector('#new-task-submit')
+const taskElement = document.querySelector('.task')
 
 
-// // ---------------------- Update localStorage list ----------------------
-// const  tasksClear = () => {
-//     const tasksList = document.getElementById('tasks')
-//     while (tasksList.firstChild) {
-//         tasksList.removeChild(tasksList.lastChild)
-//     }
-// }
+const validateInput = () => inputElement.value.trim().length > 0;
+
+const handleAddTask = () => {
+    const task = inputElement.value
+    const inputIsValid = validateInput()
+
+    if (!task) {
+        alert('Please fill out the task')
+        return
+    }
+
+    if (!inputIsValid) {
+        alert('Please WRITE out the task')
+        inputElement.value = ''
+        return
+    }
+    
+    // Criando a div class="task"
+    const task_element = document.createElement('div') 
+    task_element.classList.add('task')
+
+    // Criando a div class="content"
+    const task_content = document.createElement('div') 
+    task_content.classList.add('content')
+
+    task_content.addEventListener('click', () => handleClick(task_content))
+
+    //Criando o Input
+    const task_input_element = document.createElement('input') 
+    task_input_element.classList.add('text')
+    task_input_element.type = 'text'
+    task_input_element.value = inputElement.value
+    task_input_element.setAttribute('readonly', 'readonly')
+
+    task_content.appendChild(task_input_element)
+
+    // Criando um id com o timeStamp
+    const idStamp = idGenerator()
+    task_input_element.setAttribute('id', idStamp) 
+
+    // Criando o botão de DELETE
+    const deleteTask = document.createElement('i')
+    deleteTask.classList.add('far')
+    deleteTask.classList.add('fa-trash-alt')
+
+    deleteTask.addEventListener('click', () => handleDeleteClick(task_element))
 
 
-// // ------------------------ Update Screen list ------------------------
-// const updateScreen = () => {
-//     tasksClear()
-//     bdLocalStorage.forEach (task => criarTask (task.task_txt, task.status, task.id))
-// }
+    task_element.appendChild(task_content)
+    task_element.appendChild(deleteTask)
 
-// updateScreen(console.log(bdLocalStorage))
+    taskList.appendChild(task_element)
+    inputElement.value = ''
+}
 
-// // ------------------------ Insert task ------------------------
-// const insertTask = (event) => {
-//     const tecla = event.key
-//     const taskTxt = event.target.value
-//     if (tecla === 'Enter') {
-//         bdLocalStorage.push({'task_txt': taskTxt, 'status': '-done'})
-//         updateScreen()
-//     }
-// }
+// Task Done
+const handleClick = (task_content) => {
+    if (task_content.className === 'content') {
+        task_content.classList.add('-done')
+    } else {
+        task_content.classList.remove('-done')
+    }
+}
 
-// document.getElementById('new-task-submit').addEventListener('keypress', insertTask)
-// updateScreen()
+// Task Delete 
+const handleDeleteClick = (task_element) => {
+    if (task_element.idStamp === task_element.idStamp) {
+        task_element.remove()
+    }
+
+}
+
+//Create task
+
+submitTaskButton.addEventListener('click', () => handleAddTask())
