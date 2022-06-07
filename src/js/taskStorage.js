@@ -1,27 +1,25 @@
 
-
+// Criando o localStorage
 const updateLocalStorage = () => {
-    const tasks = tasksContainer.childNodes
+    const tasks = tasksContainer.childNodes //Recebendo todos os filhos de tasks = div.task
+    const localStorageTasks = [...tasks].map((task) => { //espalhando essa div.tasks e criando um array de task
+        const content = task.firstChild //pegando o filho de task = div.content
+        const description = content.firstChild // pegando o filho de content = p
+        const isCompleted = content.classList.contains("-done") // verificado classe
+        const taskId = content.firstChild.id // pegando o id do filho do content = p#idStamp()
 
-    const localStorageTasks = [...tasks].map((task) => {
-        const content = task.firstChild
-        const description = content.firstChild
-        const isCompleted = content.classList.contains("-done")
-        const taskId = content.firstChild.id
-
-        return { description: description.innerText, isCompleted, id: taskId }
+        return { description: description.innerText, isCompleted, id: taskId } // formatando as inf que vou levar para o localStorage
     })
 
-    localStorage.setItem("tasks", JSON.stringify(localStorageTasks))
+    localStorage.setItem("tasks", JSON.stringify(localStorageTasks)) // Salvando no localStorage como STRING(ele só recebe assim)
 }
 
+
+// Trazendo do localStorage para a tela
 const refreshTasksUsingLocalStorage = () => {
-    const tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks"))
+    const tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) // Pegando as tasks que salvei em localStorage 
 
-    console.log(tasksFromLocalStorage)
-
-
-    if (!tasksFromLocalStorage) return;
+    if (!tasksFromLocalStorage) return; // Checando se tem localStorage.. se não NULL
 
     for (const task of tasksFromLocalStorage) {
         // Criando a div class="task"
@@ -38,7 +36,7 @@ const refreshTasksUsingLocalStorage = () => {
         taskText.innerText = task.description;
 
         if (task.isCompleted) {
-            taskContent.classList.add('-done')
+            taskContent.classList.add('-done') //Checando se já vem DONE
         }
 
         // Criando um id com o timeStamp
@@ -63,4 +61,4 @@ const refreshTasksUsingLocalStorage = () => {
     }
 }
 
-refreshTasksUsingLocalStorage()
+refreshTasksUsingLocalStorage() 
