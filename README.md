@@ -3,7 +3,7 @@
 
 - Inicio da refatoração do projeto para que fique salvo em <strong>localStorage</strong>(ESSE FOI) e que tenha <s>responsividade</s>(esse ainda não).
 - Projeto feito para me desafiar, aprender, praticar e mostrar para o mundo que sou capaz!!
-- Neste projeto será feito uma lista de tarefas, onde será possível, CRIAR, VISUALIZAR, EXCLUIR e EDITAR/ATUALIZAR marcando como feitas as TASKS criadas.
+- Neste projeto será feito uma lista de tarefas, onde será possível, CRIAR, VISUALIZAR, EXCLUIR e ATUALIZAR marcando como feitas as TASKS criadas.
 
 
 ## Demonstração
