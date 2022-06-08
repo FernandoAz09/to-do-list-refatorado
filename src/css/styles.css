@@ -27,20 +27,26 @@ body {
 
 header {
     padding: 2rem 1rem;
-    max-width: 800px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header h1 {
-    font-size: 6.5rem;
+    font-size: 8rem;
     font-weight: 700;
     color: var(--gray);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input,
@@ -54,11 +60,11 @@ button {
 #new-task-input {
     flex: 1 1 0%;
     background-color: var(--darker);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 1rem;
     margin-right: 1rem;
     color: var(--light);
-    font-size: 1.25rem;
+    font-size: 2.25rem;
 }
 
 #new-task-input::placeholder {
@@ -66,7 +72,7 @@ button {
 }
 
 #new-task-submit {
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 700;
     background-image: linear-gradient(to right, var(--green), var(--blue));
     -webkit-background-clip: text;
@@ -119,22 +125,21 @@ main {
     flex: 1 1 0%;
 }
 
-#tasks .task .content .text {
+#tasks .task .content p {
     color: var(--light);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+    max-width:  1000px;
     width: 100%;
     display: block;
-    transition: .4s;
+    transition: all .4s;
 }
 
-#tasks .task .content .text:not(:read-only) {
-    color: rgb(255, 251, 0);
-}
 
 .task i  {
     display: flex;
     cursor: pointer;
     color: var(--light);
+    font-size: 1.5rem;
     transition: color .4s;
 }
 
@@ -151,3 +156,87 @@ main {
 
 /* ----------------------------Responsividade---------------------------- */
 
+
+@media (max-width: 1024px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 6rem;
+
+    }
+
+    header .container {
+        display: flex;
+        flex-direction: column;
+    }
+    #new-task-input{
+        padding: 2rem;
+        width: 80vw;
+        font-size: 1.25rem;
+    }
+
+    #new-task-submit{
+        padding-top: 30px;
+        font-size: 1.75rem;
+    }
+
+}
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 5.5rem;
+
+    }
+    header .container {
+        display: flex;
+        flex-direction: column;
+    }
+    #new-task-input{
+        padding: 3rem;
+        font-size: 2rem;
+    }
+
+    #new-task-submit{
+        padding-top: 30px;
+        font-size: 2.05rem;
+    }
+
+}
+
+@media (max-width:425px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 3rem;
+
+    }
+    header .container {
+        display: flex;
+        flex-direction: column;
+    }
+    #new-task-input{
+        padding: 2rem;
+        font-size: 1rem;
+    }
+
+    #new-task-submit{
+        padding-top: 30px;
+        font-size: 2rem;
+    }
+}
