@@ -93,3 +93,9 @@ const handleDeleteClick = (task_element) => {
 
 //Create task
 submitTaskButton.addEventListener('click', () => handleAddTask())
+inputElement.addEventListener('keydown', (event) => {
+    const tecla = event.key
+    console.log(tecla)
+    if (tecla === 'Enter')
+        handleAddTask()
+})
