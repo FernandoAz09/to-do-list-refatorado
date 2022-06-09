@@ -15,9 +15,9 @@
 Refatorando o projeto pude trazer uma lógica mais coerente e aprender/fazer uso do LocalStorage para salvar os dados localmente, poder usar a Lista mesmo depois de atualizar a página ou abri-lá novamente. Pude também aprender/utilizar os recursos de responsividade do CSS. 
 
 ## Funcionalidades
-✅ - Responsividade
-✅ - LocalStorage
-🔲 - Temas dark e light.
+✅ - Responsividade <br>
+✅ - LocalStorage <br>
+🔲 - Temas dark e light <br>
 
 
 ## Stack utilizada
