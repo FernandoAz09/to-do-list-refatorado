@@ -17,7 +17,6 @@ Refatorando o projeto pude trazer uma lógica mais coerente e aprender/fazer uso
 ## Funcionalidades
 ✅ - Responsividade <br>
 ✅ - LocalStorage <br>
-🔲 - Temas dark e light <br>
 
 
 ## Stack utilizada
