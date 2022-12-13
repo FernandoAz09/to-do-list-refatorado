@@ -1,5 +1,5 @@
 
-# TO-DO-LIST - REAFATORADO
+# TO-DO-LIST - REFATORADO
 
 - Inicio da refatoração do projeto para que fique salvo em <strong>localStorage</strong> e que tenha <strong>responsividade</strong>.
 - Projeto feito para me desafiar, aprender, praticar e mostrar para o mundo que sou capaz!!
